@@ -1,0 +1,116 @@
+/* drawer menu */
+@media (width <= 592px) {
+  html,
+  body {
+    scrollbar-gutter: stable;
+  }
+
+  body.open {
+    overflow-y: hidden;
+  }
+
+  .nav {
+    position: fixed;
+    inset: var(--header-height) -100% 0 100%;
+    height: 100dvh;
+    background-color: var(--main-color);
+    color: var(--base-color);
+    transition: translate 0.2s ease-in;
+  }
+
+  .open .nav {
+    translate: -100% 0;
+  }
+
+  .nav-inner {
+    height: 100%;
+    flex-direction: column;
+    align-items: revert;
+    gap: 0;
+  }
+  .nav-inner li {
+    border-bottom: 1px solid color-mix(in srgb, var(--main-color), #ffffff 30%);
+  }
+  .nav-inner li a {
+    text-align: left;
+    padding: 20px 6vw;
+    font-size: 1rem;
+  }
+}
+
+/* drawer button */
+.drawer-button-wrapper {
+  align-items: center;
+  display: none;
+}
+
+@media (width <= 592px) {
+  .drawer-button-wrapper {
+    display: flex;
+  }
+}
+
+.drawer-button {
+  width: 40px;
+  height: 40px;
+  position: relative;
+}
+.drawer-button-line {
+  display: block;
+  height: 2px;
+  width: 28px;
+  background-color: var(--main-color);
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  transition: background-color 0.2s ease-in;
+}
+
+.open .drawer-button-line {
+  background-color: transparent;
+}
+
+.drawer-button-line::before,
+.drawer-button-line::after {
+  content: '';
+  display: block;
+  height: 100%;
+  width: 100%;
+  background-color: var(--main-color);
+  position: absolute;
+  transition: all 0.2s ease-in;
+}
+
+.drawer-button-line::before {
+  top: -8px;
+}
+
+.open .drawer-button-line::before {
+  top: 0;
+  rotate: 45deg;
+}
+
+.drawer-button-line::after {
+  top: 8px;
+}
+
+.open .drawer-button-line::after {
+  top: 0;
+  rotate: -45deg;
+}
+
+/* visually hidden */
+.visually-hidden {
+  position: fixed !important;
+  top: 0px !important;
+  left: 0px !important;
+  width: 4px !important;
+  height: 4px !important;
+  opacity: 0 !important;
+  overflow: hidden !important;
+  border: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: block !important;
+  visibility: visible !important;
+}

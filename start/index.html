@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up | JavaScript Exam</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous" />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet" />
+    <!-- Fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.0/css/all.min.css" integrity="sha512-9xKTRVabjVeZmc+GUW8GgSmcREDunMM+Dt/GrzchfN8tkwHizc5RP4Ok/MXFFy5rIjJjzhndFScTceq5e6GvVQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- common.css(共通CSS) -->
+    <link rel="stylesheet" href="css/common.css" />
+    <!-- drawer.css(ドロワーメニュー用JS) -->
+    <link rel="stylesheet" href="css/drawer.css" />
+  </head>
+    <header class="header">
+      <div class="l-container header-inner">
+        <div class="logo"><a href="#">LOGO</a></div>
+        <nav class="nav">
+          <ul class="nav-inner">
+            <li><a href="#">top</a></li>
+            <li><a href="#">about</a></li>
+            <li><a href="#">products</a></li>
+            <li><a href="#">access</a></li>
+            <li><a href="#">sign up</a></li>
+          </ul>
+        </nav>
+        <!-- ドロワーメニューのボタンをつくる -->
+      </div>
+    </header>
+    <main class="main">
+      <section class="section page-banner">
+        <div class="l-container">
+          <h1 class="title-style01">sign up</h1>
+        </div>
+      </section>
+      <section class="section">
+        <div class="l-container-narrow">
+          <form action="#" method="post" class="form">
+            <fieldset class="fieldset">
+              <legend>基本情報</legend>
+              <!-- 氏名 -->
+              <div class="row form-group">
+                <div class="col-12 col-sm-6 mb-3 mb-md-0">
+                  <label for="name1" class="form-label">姓</label>
+                  <input type="text" name="name1" id="name1" class="form-control" />
+                </div>
+                <div class="col-12 col-sm-6">
+                  <label for="name2" class="form-label">名</label>
+                  <input type="text" name="name2" id="name2" class="form-control" />
+                </div>
+              </div>
+
+              <!-- 生年月日 -->
+              <div class="form-group">
+                <p class="form-label">生年月日</p>
+                <div class="row align-items-center">
+                  <div class="col-auto">
+                    <select name="birthyear" id="birthyear" class="form-select form-inline"></select>
+                  </div>
+                  <span class="col-auto"><label for="birthyear">年</label></span>
+                  <div class="col-auto">
+                    <select name="birthmonth" id="birthmonth" class="form-select"></select>
+                  </div>
+                  <span class="col-auto"><label for="birthmonth">月</label></span>
+                  <div class="col-auto">
+                    <select name="birthdate" id="birthdate" class="form-select"></select>
+                  </div>
+                  <span class="col-auto"><label for="birthdate">日</label></span>
+                </div>
+                <div class="row">
+                  <span id="error-birthday" class="error text-danger"></span>
+                </div>
+              </div>
+
+              <!-- 性別 -->
+              <div class="form-group">
+                <div class="col-auto" id="gendar">
+                  <p class="form-label">性別</p>
+                  <!-- 
+                  <div class="form-check form-check-inline">
+                    <input type="radio" name="gendar" id="gendar01" value="01" class="form-check-input" />
+                    <label for="gendar01" class="form-check-label">男性</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input type="radio" name="gendar" id="gendar02" value="02" class="form-check-input" />
+                    <label for="gendar02" class="form-check-label">女性</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input type="radio" name="gendar" id="gendar03" value="03" class="form-check-input" />
+                    <label for="gendar03" class="form-check-label">その他</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input type="radio" name="gendar" id="gendar04" value="04" class="form-check-input" />
+                    <label for="gendar04" class="form-check-label">無回答</label>
+                  </div>
+                  -->
+                </div>
+              </div>
+
+              <!-- 職業 -->
+              <div class="form-group">
+                <div class="col-auto" id="job">
+                  <p class="form-label">職業</p>
+                  <!-- 
+                  <div class="form-check form-check-inline">
+                    <input type="radio" name="job" id="job01" value="01" class="form-check-input" />
+                    <label for="job01" class="form-check-label">学生</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input type="radio" name="job" id="job02" value="02" class="form-check-input" />
+                    <label for="job02" class="form-check-label">会社員(正社員)</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input type="radio" name="job" id="job03" value="03" class="form-check-input" />
+                    <label for="job03" class="form-check-label">契約社員・派遣社員</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input type="radio" name="job" id="job04" value="04" class="form-check-input" />
+                    <label for="job04" class="form-check-label">パート・アルバイト</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input type="radio" name="job" id="job05" value="05" class="form-check-input" />
+                    <label for="job05" class="form-check-label">自営業・フリーランス</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input type="radio" name="job" id="job06" value="06" class="form-check-input" />
+                    <label for="job06" class="form-check-label">公務員</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input type="radio" name="job" id="job07" value="07" class="form-check-input" />
+                    <label for="job07" class="form-check-label">主婦・主夫</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input type="radio" name="job" id="job08" value="08" class="form-check-input" />
+                    <label for="job08" class="form-check-label">無職・求職中</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input type="radio" name="job" id="job09" value="09" class="form-check-input" />
+                    <label for="job09" class="form-check-label">その他</label>
+                  </div>
+                   -->
+                </div>
+              </div>
+            </fieldset>
+            <fieldset class="fieldset">
+              <legend>アカウント情報</legend>
+              <!-- メールアドレス -->
+              <div class="form-group">
+                <div class="row">
+                  <div class="col-12 col-md-6 mb-3 mb-md-0">
+                    <label for="email" class="form-label">メールアドレス</label>
+                    <input type="email" name="email" id="email" class="form-control" />
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <label for="email-confirm" class="form-label">メールアドレス(確認用)</label>
+                    <input type="email" name="email-confirm" id="email-confirm" class="form-control" />
+                  </div>
+                </div>
+                <div class="row">
+                  <span id="error-email" class="error text-danger"></span>
+                </div>
+              </div>
+
+              <!-- パスワード -->
+              <div class="form-group">
+                <div class="row">
+                  <div class="col-12 col-md-6 mb-3 mb-md-0">
+                    <label for="password" class="form-label">パスワード</label>
+                    <input type="password" name="password" id="password" class="form-control"/>
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <label for="password-confirm" class="form-label">パスワード(確認用)</label>
+                    <input type="password" name="password-confirm" id="password-confirm" class="form-control" />
+                  </div>
+                </div>
+                <div class="row">
+                  <span id="error-password" class="error text-danger"></span>
+                </div>
+              </div>
+
+              <!-- ユーザー名 -->
+              <div class="form-group">
+                <div class="row">
+                  <div class="col-12 col-md-6">
+                    <label for="username" class="form-label">ユーザー名</label>
+                    <input type="text" name="username" id="username" class="form-control" aria-labelledby="username-help" />
+                    <p class="form-text mb-0" id="username-help">半角英数字4文字以上</p>
+                  </div>
+                </div>
+                <div class="row">
+                  <span id="error-username" class="error text-danger"></span>
+                </div>
+              </div>
+            </fieldset>
+
+            <fieldset class="fieldset">
+              <legend>連絡先</legend>
+              <!-- 電話番号 -->
+              <div class="form-group">
+                <div class="row">
+                  <div class="col-12 col-md-6">
+                    <label for="tel" class="form-label">電話番号</label>
+                    <input type="tel" name="tel" id="tel" class="form-control" aria-labelledby="tel-help" />
+                    <p class="form-text mb-0" id="tel-help">半角数字・ハイフン無し</p>
+                  </div>
+                </div>
+                <div class="row">
+                  <span id="error-tel" class="error text-danger"></span>
+                </div>
+              </div>
+
+              <!-- 郵便番号 -->
+              <div class="form-group">
+                <div class="row">
+                  <div class="col-12 col-md-4">
+                    <label for="postcode" class="form-label">郵便番号</label>
+                    <input type="text" name="postcode" id="postcode" class="form-control" aria-labelledby="tel-help" />
+                    <p class="form-text mb-0" id="post-help">半角数字・ハイフン無し</p>
+                  </div>
+                </div>
+                <div class="row">
+                  <span id="error-postcode" class="error text-danger"></span>
+                </div>
+                </div>
+                <div class="form-group">
+                <!-- 住所 -->
+                <div class="row mb-3">
+                  <div class="col-12 col-md-6">
+                    <label for="pref" class="form-label">都道府県</label>
+                    <select name="pref" id="pref" class="form-select">
+                      <option hidden>都道府県を選択</option>
+                      <!-- 
+                      <option value="01">北海道</option>
+                      <option value="02">青森県</option>
+                      <option value="03">岩手県</option>
+                      <option value="04">宮城県</option>
+                      <option value="05">秋田県</option>
+                      -- 省略 --
+                      <option value="45">宮崎県</option>
+                      <option value="46">鹿児島県</option>
+                      <option value="47">沖縄県</option>
+                      -->
+                    </select>
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <div class="col-12 col-md-6">
+                    <label for="address1" class="form-label">市区町村</label>
+                    <input type="text" name="address1" id="address1" class="form-control" />
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <div class="col-12 col-md-9">
+                    <label for="address2" class="form-label">番地・建物名</label>
+                    <input type="text" name="address2" id="address2" class="form-control" />
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+
+            <fieldset class="fieldset">
+              <legend>追加情報</legend>
+              <div class="form-group">
+                <div class="row mb-3">
+                  <div class="col-12" id="interest">
+                    <p class="form-label">興味・関心</p>
+                    <!--
+                    <div class="form-check form-check-inline">
+                      <input type="checkbox" name="interest" id="interest01" value="01" class="form-check-input" />
+                      <label for="interest01" class="form-check-label">旅行・観光</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input type="checkbox" name="interest" id="interest02" value="02" class="form-check-input" />
+                      <label for="interest02" class="form-check-label">グルメ・料理</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input type="checkbox" name="interest" id="interest03" value="03" class="form-check-input" />
+                      <label for="interest03" class="form-check-label">ファッション・美容</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input type="checkbox" name="interest" id="interest04" value="04" class="form-check-input" />
+                      <label for="interest04" class="form-check-label">スポーツ・フィットネス</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input type="checkbox" name="interest" id="interest05" value="05" class="form-check-input" />
+                      <label for="interest05" class="form-check-label">音楽・映画</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input type="checkbox" name="interest" id="interest06" value="06" class="form-check-input" />
+                      <label for="interest06" class="form-check-label">アート・デザイン</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input type="checkbox" name="interest" id="interest07" value="07" class="form-check-input" />
+                      <label for="interest07" class="form-check-label">読書・文学</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input type="checkbox" name="interest" id="interest08" value="08" class="form-check-input" />
+                      <label for="interest08" class="form-check-label">ゲーム・アニメ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input type="checkbox" name="interest" id="interest09" value="09" class="form-check-input" />
+                      <label for="interest09" class="form-check-label">テクノロジー・ガジェット</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input type="checkbox" name="interest" id="interest10" value="10" class="form-check-input" />
+                      <label for="interest10" class="form-check-label">ビジネス・投資</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input type="checkbox" name="interest" id="interest11" value="11" class="form-check-input" />
+                      <label for="interest11" class="form-check-label">子育て・家庭</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input type="checkbox" name="interest" id="interest12" value="12" class="form-check-input" />
+                      <label for="interest12" class="form-check-label">自然・アウトドア</label>
+                    </div>
+                    -->
+                  </div>
+                </div>
+              </div>
+
+              <!-- メールマガジン -->
+              <div class="form-group">
+                <div class="row mb-3">
+                  <div class="col-auto">
+                    <p class="form-label">メールマガジン</p>
+                    <div class="form-check form-switch">
+                      <input type="checkbox" name="news-letter" role="switch" id="news-letter-switch" class="form-check-input" />
+                      <label for="news-letter-switch" class="form-check-label">メールマガジンの配信を希望する</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="row mb-3 news-letter-options" id="news-letter-options">
+                  <div class="col-auto">
+                    <div class="form-check">
+                      <input type="checkbox" name="news-letter-option" id="news-letter-option01" value="01" class="form-check-input" />
+                      <label for="news-letter-option01" class="form-check-label">最新ニュース・お知らせ</label>
+                    </div>
+                    <div class="form-check">
+                      <input type="checkbox" name="news-letter-option" id="news-letter-option02" value="02" class="form-check-input" />
+                      <label for="news-letter-option02" class="form-check-label">お得なキャンペーン情報</label>
+                    </div>
+                    <div class="form-check">
+                      <input type="checkbox" name="news-letter-option" id="news-letter-option03" value="03" class="form-check-input" />
+                      <label for="news-letter-option03" class="form-check-label">おすすめコンテンツ</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 特記事項 -->
+              <div class="form-group">
+                <div class="row mb-5">
+                  <div class="col-12">
+                    <label for="comment" class="form-label">特記事項</label>
+                    <textarea name="comment" id="comment" class="form-control" maxlength="500"></textarea>
+                    <p class="form-text mb-0" aria-labelledby="comment">残り: <span id="comment-count">500</span>文字 </p>
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+
+            <!-- プライバシーポリシー -->
+            <div class="form-group">
+              <div class="row justify-content-center mb-5">
+                <div class="col-auto">
+                  <div class="form-check">
+                    <input type="checkbox" name="privacy-policy" id="privacy-policy" class="form-check-input" />
+                    <label for="privacy-policy" class="form-check-label"><a href="privacy-policy.html" class="link" target="_blank">プライバシーポリシー</a>に同意する</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 送信ボタン -->
+            <div class="form-group">
+              <div class="row justify-content-center mb-5">
+                <div class="col-auto">
+                  <input type="submit" id="submit-button" class="btn btn-primary" value="入力内容確認" disabled />
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+    <footer class="footer"></footer>
+    <!-- Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <!-- common.js(共通JS) -->
+    <script src="js/common.js"></script>
+    <!-- drawer.js(ドロワーメニュー用JS) -->
+    <script src="js/drawer.js"></script>
+    <!-- その他作ったJSファイルを読み込む -->
+  </body>
+</html>
